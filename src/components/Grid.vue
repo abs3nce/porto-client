@@ -1,13 +1,9 @@
 <template>
-  <h1>grid</h1>
+    <h1>grid</h1>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style lang="scss" scoped></style>
