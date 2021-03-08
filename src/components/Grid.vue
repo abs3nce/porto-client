@@ -11,7 +11,7 @@ export default {
             .get("https://jsonplaceholder.typicode.com/photos")
             .then((res) => {
                 // console.log(res.data.slice(0, 18));
-                this.fetch = res.data.slice(0, 30);
+                this.fetch = res.data.slice(0, 21);
             });
     },
 
@@ -26,27 +26,30 @@ export default {
 
 <style lang="scss" scoped>
 .grid-wrap {
-    height: inherit;
     width: var(--site-height);
+    min-height: calc(var(--site-height) / 3);
+
     display: flex;
     flex-wrap: wrap;
-
-    // background: olive;
-
-    @media (min-width: 180px) {
+    @media (min-width: 100px) {
         img {
-            aspect-ratio: 1/1;
-            width: 33.33%;
-            height: auto;
-            // background-color: orange;
+            max-width: calc(100vw / 3);
+            height: calc(100vw / 3);
         }
     }
-    @media (min-width: 1025px) {
+
+    @media (min-width: 1366px) {
         img {
-            // background-color: orange;
-            aspect-ratio: 1/1;
-            height: calc(var(--site-height) / 3);
-            width: auto;
+            max-width: calc(var(--site-height) / 3);
+            height: auto;
+        }
+    }
+
+    //jediny edge case kedy to nefungovalo takze osetrenie cez kombinaciu querin
+    @media (min-width: 545px) and (max-width: 1366px) and (max-height: 640px) {
+        img {
+            max-width: calc(var(--site-height) / 3);
+            height: auto;
         }
     }
 }

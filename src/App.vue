@@ -28,20 +28,25 @@ export default {
 :root {
     //globalne variables pre farby
 
-    //text
-    --text-primary: #1b1b1b;
-    --text-secondary: #646464;
+    //accents
+    --acc-blue: #3645fbff;
+    --acc-purple: #a26fe0ff;
+    --acc-pink: #c97ebeff;
+    --acc-orange: #ef8d79ff;
+    --acc-yellow: #fe922aff;
 
-    //pozadia
-    --bg-purple-1: #250a3f;
+    //gradients
+    --grad-galaxy: linear-gradient(
+        135deg,
+        #3645fbff,
+        #a26fe0ff,
+        #c97ebeff,
+        #ef8d79ff,
+        #fe922aff
+    );
 
-    //accenty
-    --acc-blue-1: #6370e7;
-    --acc-blue-2: #8ae4ff;
-
-    --acc-purple-1: #8d72e6;
-    --acc-purple-2: #b875e6;
-    --acc-purple-3: #f4a2ff;
+    //backgrounds
+    --bg-dark-blue: #242f40;
 
     //ostatne variables
 
@@ -70,7 +75,7 @@ body::-webkit-scrollbar-track {
     background-color: black;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--acc-blue-2);
+    background-color: var(--acc-blue);
     // border-radius: 128px;
 }
 
@@ -78,12 +83,8 @@ body::-webkit-scrollbar-thumb {
                           Styling
    =========================================================*/
 .app-wrap {
-    // background-color: var(--bg-primary);
-    background-image: linear-gradient(
-        to right top,
-        var(--acc-blue-2),
-        var(--acc-purple-3)
-    );
+    background-image: var(--grad-galaxy);
+    min-height: 100vh;
 }
 
 /* =========================================================

@@ -38,16 +38,14 @@ export default {};
 
 <style lang="scss" scoped>
 .navbar-wrap {
-    
     min-height: 96px;
     width: 100%;
 
     display: flex;
 
-    background-color: var(--bg-purple-1);
+    background-color: var(--bg-dark-blue);
     .nav-list {
         width: 100%;
-
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -61,7 +59,7 @@ export default {};
                 @media (min-width: 320px) {
                     i {
                         font-size: 32px;
-                        color: var(--acc-blue-1);
+                        color: var(--acc-blue);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
@@ -71,7 +69,7 @@ export default {};
                 @media (min-width: 768px) {
                     i {
                         font-size: 48px;
-                        color: var(--acc-blue-1);
+                        color: var(--acc-blue);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
@@ -80,7 +78,7 @@ export default {};
                 }
 
                 i:hover {
-                    color: var(--acc-blue-2);
+                    color: var(--acc-purple);
                 }
             }
         }
