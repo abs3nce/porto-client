@@ -1,6 +1,62 @@
 <template>
     <div class="grid-wrap">
-        <img :src="image.url" alt="" v-for="image in fetch" :key="image.id" />
+        <div class="grid">
+            <!-- 6 pic cover -->
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/1.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/2.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/3.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/4.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/5.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/6.jpg" alt="" class="image" />
+                </div>
+            </div>
+
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/lucka.jpg" alt="" class="image" />
+                </div>
+            </div>
+            <!-- 1:1 -->
+            <div class="grid-image" v-for="image in images" :key="image.id">
+                <div class="grid-image-border">
+                    <img :src="image.url" alt="" class="image" />
+                </div>
+            </div>
+
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/auta.jpg" alt="" class="image" />
+                </div>
+            </div>
+
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img src="../assets/img/test/cecky.png" alt="" class="image" />
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -11,14 +67,14 @@ export default {
             .get("https://jsonplaceholder.typicode.com/photos")
             .then((res) => {
                 // console.log(res.data.slice(0, 18));
-                this.fetch = res.data.slice(0, 21);
+                this.images = res.data.slice(0, 1);
             });
     },
 
     methods: {},
     data() {
         return {
-            fetch: undefined,
+            images: undefined,
         };
     },
 };
@@ -26,30 +82,38 @@ export default {
 
 <style lang="scss" scoped>
 .grid-wrap {
-    width: var(--site-height);
-    min-height: calc(var(--site-height) / 3);
-
+    min-width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    @media (min-width: 100px) {
-        img {
-            max-width: calc(100vw / 3);
-            height: calc(100vw / 3);
-        }
-    }
-
-    @media (min-width: 1366px) {
-        img {
-            max-width: calc(var(--site-height) / 3);
+    justify-content: center;
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: var(--site-height);
+        .grid-image {
+            // aspect-ratio: 1/1;
+            width: 33.33%;
             height: auto;
-        }
-    }
 
-    //jediny edge case kedy to nefungovalo takze osetrenie cez kombinaciu querin
-    @media (min-width: 545px) and (max-width: 1366px) and (max-height: 640px) {
-        img {
-            max-width: calc(var(--site-height) / 3);
-            height: auto;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+            background-color: white;
+            .grid-image-border {
+                aspect-ratio: 1/1;
+                width: 100%;
+                height: auto;
+
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                .image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
         }
     }
 }
