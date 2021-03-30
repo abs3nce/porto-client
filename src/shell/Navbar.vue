@@ -2,30 +2,37 @@
     <div class="navbar-wrap">
         <ul class="nav-list">
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/pf">
+                <router-link class="nav-link" to="/portfolio">
                     <span> <i class="fas fa-plus-circle"> </i> </span>
                 </router-link>
             </li>
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/pf">
+                <router-link class="nav-link" to="/portfolio">
                     <span><i class="fas fa-search"></i></span>
                 </router-link>
             </li>
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/pf">
+                <router-link class="nav-link" to="/portfolio">
                     <span>
                         <i class="fas fa-images main"></i>
                     </span>
                 </router-link>
             </li>
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/pf">
+                <router-link class="nav-link" to="/portfolio">
                     <span><i class="fas fa-cog"></i></span>
                 </router-link>
             </li>
-            <li class="nav-list-item">
-                <router-link class="nav-link" to="/pf">
+
+            <!-- tieto posledne dve sa budu switchovat podla toho ci je user loginnuty -->
+            <!-- <li class="nav-list-item">
+                <router-link class="nav-link" to="/profile">
                     <span><i class="fas fa-user-alt"></i></span>
+                </router-link>
+            </li> -->
+            <li class="nav-list-item">
+                <router-link class="nav-link" to="/join">
+                    <span><i class="fas fa-sign-in-alt"></i></span>
                 </router-link>
             </li>
         </ul>
@@ -56,7 +63,7 @@ export default {};
             display: flex;
             align-items: center;
             .nav-link {
-                @media (min-width: 320px) {
+                @media (min-width: 280px) {
                     i {
                         font-size: 32px;
                         color: var(--acc-blue);
@@ -68,12 +75,12 @@ export default {};
                 }
                 @media (min-width: 768px) {
                     i {
-                        font-size: 48px;
+                        font-size: 250%; //povodne 48px
                         color: var(--acc-blue);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
-                        font-size: 64px;
+                        font-size: 450%; //povodne 64px
                     }
                 }
 

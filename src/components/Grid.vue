@@ -33,27 +33,41 @@
                 </div>
             </div>
 
+            <!-- custom aspec ratios -->
             <div class="grid-image">
                 <div class="grid-image-border">
-                    <img src="../assets/img/test/lucka.jpg" alt="" class="image" />
+                    <img
+                        src="../assets/img/test/lucka.jpg"
+                        alt=""
+                        class="image"
+                    />
                 </div>
             </div>
+
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img
+                        src="../assets/img/test/auta.jpg"
+                        alt=""
+                        class="image"
+                    />
+                </div>
+            </div>
+
+            <div class="grid-image">
+                <div class="grid-image-border">
+                    <img
+                        src="../assets/img/test/cecky.png"
+                        alt=""
+                        class="image"
+                    />
+                </div>
+            </div>
+
             <!-- 1:1 -->
             <div class="grid-image" v-for="image in images" :key="image.id">
                 <div class="grid-image-border">
                     <img :src="image.url" alt="" class="image" />
-                </div>
-            </div>
-
-            <div class="grid-image">
-                <div class="grid-image-border">
-                    <img src="../assets/img/test/auta.jpg" alt="" class="image" />
-                </div>
-            </div>
-
-            <div class="grid-image">
-                <div class="grid-image-border">
-                    <img src="../assets/img/test/cecky.png" alt="" class="image" />
                 </div>
             </div>
         </div>
@@ -62,12 +76,13 @@
 
 <script>
 export default {
-    mounted() {
+    created() {
         this.axios
             .get("https://jsonplaceholder.typicode.com/photos")
             .then((res) => {
                 // console.log(res.data.slice(0, 18));
-                this.images = res.data.slice(0, 1);
+                this.images = res.data.slice(0, 6);
+                // console.log(this.images);
             });
     },
 
@@ -83,15 +98,18 @@ export default {
 <style lang="scss" scoped>
 .grid-wrap {
     min-width: 100%;
+
     display: flex;
     justify-content: center;
     .grid {
+        width: var(--site-height);
+
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: var(--site-height);
+
         .grid-image {
-            // aspect-ratio: 1/1;
+            aspect-ratio: 1/1;
             width: 33.33%;
             height: auto;
 
@@ -99,7 +117,6 @@ export default {
             justify-content: center;
             align-content: center;
 
-            background-color: white;
             .grid-image-border {
                 aspect-ratio: 1/1;
                 width: 100%;
@@ -108,9 +125,13 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-content: center;
+
+                background-color: white;
+
                 .image {
                     width: 100%;
                     height: 100%;
+
                     object-fit: contain;
                 }
             }
