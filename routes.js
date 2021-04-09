@@ -1,6 +1,7 @@
 import PortfiolioPage from "./src/pages/PortfolioPage.vue";
 import ProfilePage from "./src/pages/ProfilePage.vue";
-import LoginRegisterPage from "./src/pages/LoginRegisterPage.vue";
+import LoginPage from "./src/pages/LoginPage.vue";
+import RegisterPage from "./src/pages/RegisterPage.vue";
 import PageNotFound from "./src/pages/PageNotFound.vue";
 
 export default [
@@ -17,7 +18,11 @@ export default [
         component: ProfilePage,
     },
     {
-        path: "/join",
-        component: LoginRegisterPage,
+        path: "/login",
+        component: LoginPage,
+    },
+    {
+        path: "/register",
+        component: RegisterPage,
     },
 ];

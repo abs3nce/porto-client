@@ -3,12 +3,12 @@
         <ul class="nav-list">
             <li class="nav-list-item">
                 <router-link class="nav-link" to="/portfolio">
-                    <span> <i class="fas fa-plus-circle"> </i> </span>
+                    <span><i class="fas fa-search"></i></span>
                 </router-link>
             </li>
             <li class="nav-list-item">
                 <router-link class="nav-link" to="/portfolio">
-                    <span><i class="fas fa-search"></i></span>
+                    <span><i class="fas fa-user-circle"></i></span>
                 </router-link>
             </li>
             <li class="nav-list-item">
@@ -20,10 +20,9 @@
             </li>
             <li class="nav-list-item">
                 <router-link class="nav-link" to="/portfolio">
-                    <span><i class="fas fa-cog"></i></span>
+                    <span> <i class="fas fa-plus-circle"> </i> </span>
                 </router-link>
             </li>
-
             <!-- tieto posledne dve sa budu switchovat podla toho ci je user loginnuty -->
             <!-- <li class="nav-list-item">
                 <router-link class="nav-link" to="/profile">
@@ -31,7 +30,7 @@
                 </router-link>
             </li> -->
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/join">
+                <router-link class="nav-link" to="/login">
                     <span><i class="fas fa-sign-in-alt"></i></span>
                 </router-link>
             </li>
@@ -45,13 +44,15 @@ export default {};
 
 <style lang="scss" scoped>
 .navbar-wrap {
-    min-height: 96px;
+    height: var(--navbar-height);
     width: 100%;
 
     display: flex;
-
-    background-color: var(--bg-dark-blue);
+    // background-color: var(--acc-deep-blue);
     .nav-list {
+        padding: 0;
+        margin: 0;
+        
         width: 100%;
         display: flex;
         justify-content: space-evenly;
@@ -66,7 +67,7 @@ export default {};
                 @media (min-width: 280px) {
                     i {
                         font-size: 32px;
-                        color: var(--acc-blue);
+                        color: var(--acc-cyan);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
@@ -76,7 +77,7 @@ export default {};
                 @media (min-width: 768px) {
                     i {
                         font-size: 250%; //povodne 48px
-                        color: var(--acc-blue);
+                        color: var(--acc-cyan);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
@@ -85,7 +86,7 @@ export default {};
                 }
 
                 i:hover {
-                    color: var(--acc-purple);
+                    color: var(--acc-hover);
                 }
             }
         }

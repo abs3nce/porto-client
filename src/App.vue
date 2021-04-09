@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
+
 /* =========================================================
                             GLOBAL
    =========================================================*/
@@ -29,40 +31,46 @@ export default {
     //globalne variables pre farby
 
     //accents
-    --acc-blue: #3645fbff;
-    --acc-purple: #a26fe0ff;
-    --acc-pink: #c97ebeff;
-    --acc-orange: #ef8d79ff;
-    --acc-yellow: #fe922aff;
+    --acc-cyan: #00c2ff;
+    --acc-hover: #00ffea;
+    --acc-white: white;
+    --acc-deep-blue: #00072f;
+    --acc-purple: #8000ff;
 
     //gradients
-    --grad-galaxy: linear-gradient(
-        135deg,
-        #3645fbff,
-        #a26fe0ff,
-        #c97ebeff,
-        #ef8d79ff,
-        #fe922aff
-    );
+    --grad-site: linear-gradient(0, var(--acc-purple), var(--acc-deep-blue));
 
     //backgrounds
-    --bg-dark-blue: #242f40;
-
-    //ostatne variables
+    --bg-dark-blue: #00072f;
 
     //rychlosti
     --transition-speed: 500ms;
 
+    //fonty a text
+
+    --text-small: 12px;
+    --text-medium: 24px;
+    --text-large: 32px;
+
     //velkosti
     --navbar-height: 96px;
     --site-height: calc(100vh - var(--navbar-height));
+
+    //ostatne variables
 }
 
 html,
-*,
 body {
     margin: 0;
     padding: 0;
+    font-family: "Spartan", sans-serif;
+    height: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: "Spartan", sans-serif;
 }
 
 /* =========================================================
@@ -75,7 +83,7 @@ body::-webkit-scrollbar-track {
     background-color: black;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--acc-blue);
+    background-color: var(--acc-cyan);
     // border-radius: 128px;
 }
 
@@ -83,8 +91,8 @@ body::-webkit-scrollbar-thumb {
                           Styling
    =========================================================*/
 .app-wrap {
-    background-image: var(--grad-galaxy);
-    min-height: 100vh;
+    background-image: var(--grad-site);
+    min-height: 100%;
 }
 
 /* =========================================================
