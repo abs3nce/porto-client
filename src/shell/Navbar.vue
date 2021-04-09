@@ -2,12 +2,12 @@
     <div class="navbar-wrap">
         <ul class="nav-list">
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/portfolio">
+                <router-link class="nav-link" to="/explore">
                     <span><i class="fas fa-search"></i></span>
                 </router-link>
             </li>
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/portfolio">
+                <router-link class="nav-link" to="/profile">
                     <span><i class="fas fa-user-circle"></i></span>
                 </router-link>
             </li>
@@ -19,7 +19,7 @@
                 </router-link>
             </li>
             <li class="nav-list-item">
-                <router-link class="nav-link" to="/portfolio">
+                <router-link class="nav-link" to="/post">
                     <span> <i class="fas fa-plus-circle"> </i> </span>
                 </router-link>
             </li>
