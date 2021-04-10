@@ -7,17 +7,42 @@
                 </router-link>
             </li>
             <li class="nav-list-item">
+                <div class="nav-link">
+                    <span>
+                        <button @click="isUserLogged('profile')">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                    </span>
+                </div>
+            </li>
+            <li class="nav-list-item">
+                <div class="nav-link">
+                    <span>
+                        <button @click="isUserLogged('portfolio')">
+                            <i class="fas fa-images main"></i>
+                        </button>
+                    </span>
+                </div>
+            </li>
+
+            <!-- 
+            <li class="nav-list-item">
                 <router-link class="nav-link" to="/profile">
                     <span><i class="fas fa-user-circle"></i></span>
                 </router-link>
             </li>
+
             <li class="nav-list-item">
                 <router-link class="nav-link" to="/portfolio">
                     <span>
                         <i class="fas fa-images main"></i>
                     </span>
                 </router-link>
-            </li>
+            </li> 
+            
+            backup povodneho router linku 
+            
+            -->
             <li class="nav-list-item">
                 <router-link class="nav-link" to="/post">
                     <span> <i class="fas fa-plus-circle"> </i> </span>
@@ -39,7 +64,43 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            userData: null,
+            userSigned: false,
+        };
+    },
+    methods: {
+        isUserLogged(direction) {
+            if (localStorage.getItem("token") == null) {
+                this.$router.push("/login");
+            } else {
+                this.whoIsUser(direction);
+            }
+        },
+        whoIsUser(direction) {
+            this.axios
+                .get("http://localhost:3000/verifylogin", {
+                    headers: { token: localStorage.getItem("token") },
+                })
+                .then(
+                    (res) => {
+                        console.log(res);
+                        this.userData = res.data.userData;
+                        if(direction == "portfolio"){
+                            this.$router.replace(`/${this.userData.username}`);
+                        } else {
+                            this.$router.replace(`/${this.userData.username}/profile`)
+                        }
+                    },
+                    (err) => {
+                        console.log(err.response);
+                    }
+                );
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -52,7 +113,7 @@ export default {};
     .nav-list {
         padding: 0;
         margin: 0;
-        
+
         width: 100%;
         display: flex;
         justify-content: space-evenly;

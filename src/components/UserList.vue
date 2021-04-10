@@ -6,7 +6,14 @@
                 <td>
                     <router-link :to="'/' + user.username">
                         <button>
-                            view
+                            View Portfolio
+                        </button>
+                    </router-link>
+                </td>
+                <td>
+                    <router-link :to="'/' + user.username + '/profile'">
+                        <button>
+                            View Profile
                         </button>
                     </router-link>
                 </td>
@@ -23,10 +30,15 @@ export default {
         };
     },
     created() {
-        this.axios.get("http://localhost:3000/users").then((res) => {
-            console.log(res);
-            this.users = res.data;
-        });
+        this.axios.get("http://localhost:3000/users").then(
+            (res) => {
+                console.log("EXPLORE SUCCESS:\n\n", res);
+                this.users = res.data;
+            },
+            (err) => {
+                console.log("EXPLORE ERROR:\n", err.response);
+            }
+        );
     },
 };
 </script>

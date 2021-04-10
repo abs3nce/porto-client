@@ -1,6 +1,14 @@
 <template>
     <div class="grid-wrap">
-        <div class="grid">
+        <div class="error" v-if="error">
+            <h1>
+                {{ error.title }} <br />
+                maybe try to use a different username?
+                <!-- sem este pridat search bar na userov aby si uzivatel mohol vyhladat usera este raz  -->
+            </h1>
+        </div>
+
+        <div class="grid" v-if="!error">
             <!-- 6 pic cover -->
             <div class="grid-image">
                 <div class="grid-image-border">
@@ -76,7 +84,30 @@
 
 <script>
 export default {
+    data() {
+        return {
+            username: this.$route.params.username, // user je parameter z url ktory nasledne pouzivam na urobenie requestu
+            error: null, //error, ktory ukladam pokial sa user nenasiel alebo nastala nejaka ina chyba
+            userData: null,
+            images: undefined, // toto su data ktore dostavam z requestu o fotky na jsonplaceholder (temporary)
+        };
+    },
+
     created() {
+        // pri vytvoreni "renderu" sa urobi request s menom usera z urlky a podla odpovede vypisujem data hore v template
+        // inak je tu iba jednoduchy handling dat
+        this.axios.get(`http://localhost:3000/users/${this.username}`).then(
+            (res) => {
+                console.log("GRID SUCCESS:\n\n", res.data);
+                this.userData = res.data;
+            },
+            (err) => {
+                console.log("GRID ERROR:\n", err.response);
+                this.error = err.response.data;
+            }
+        );
+
+        // iba temporary request na ziskanie placeholder fotiek na portfolio, neskor to bude samozrejme vsetko v requeste na usera vyssie
         this.axios
             .get("https://jsonplaceholder.typicode.com/photos")
             .then((res) => {
@@ -84,13 +115,6 @@ export default {
                 this.images = res.data.slice(0, 6);
                 // console.log(this.images);
             });
-    },
-
-    methods: {},
-    data() {
-        return {
-            images: undefined,
-        };
     },
 };
 </script>
@@ -101,6 +125,16 @@ export default {
 
     display: flex;
     justify-content: center;
+
+    .error {
+        height: calc(100vh - var(--navbar-height));
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
     .grid {
         width: var(--site-height);
 

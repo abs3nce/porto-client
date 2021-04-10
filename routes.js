@@ -7,14 +7,17 @@ import ExplorePage from "./src/pages/ExplorePage.vue";
 import PageNotFound from "./src/pages/PageNotFound.vue";
 
 export default [
-    {
-        path: "/portfolio",
-        component: PortfiolioPage,
-    },
-    {
-        path: "/profile",
-        component: ProfilePage,
-    },
+    // {
+    //     path: "/portfolio",
+    //     component: PortfiolioPage,
+    // },
+    // {
+    //     path: "/profile",
+    //     component: ProfilePage,
+    // },
+    //povodne routes ktore sa uz pouzivat nebudu pretoze akurat teraz sa snazim o dynamiku 20210410
+
+    
     {
         path: "/login",
         component: LoginPage,
@@ -31,6 +34,21 @@ export default [
         path: "/post",
         component: AddImagePage,
     },
+
+
+
+    {
+        path: "/:username",
+        component: PortfiolioPage,
+    },
+    {
+        path: "/:username/profile",
+        component: ProfilePage,
+    },
+
+
+
+
     {
         path: "*",
         component: PageNotFound,

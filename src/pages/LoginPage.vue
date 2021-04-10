@@ -38,17 +38,17 @@ export default {
                 username: this.login_username,
                 password: this.login_password,
             };
-            console.log(user);
+            console.log("CLIENT LOGIN INPUT:\n\n", user);
 
             this.axios.post("http://localhost:3000/login", user).then(
                 (res) => {
-                    console.log(res);
+                    console.log("LOGIN SUCCESS:\n\n", res.data);
                     this.login_error = null;
-                    localStorage.setItem("token", res.data.token);
-                    this.$router.push("/portfolio");
+                    localStorage.setItem("token", res.data.userData.token);
+                    this.$router.push(`/${res.data.userData.username}`);
                 },
                 (err) => {
-                    console.log(err.response);
+                    console.log("LOGIN ERROR:\n", err.response);
                     this.login_error = err.response.data.error;
                 }
             );
