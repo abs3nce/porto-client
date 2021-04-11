@@ -86,16 +86,22 @@ export default {
                 })
                 .then(
                     (res) => {
-                        console.log(res);
+                        console.log(
+                            "NAVBAR SUCCESS (user logged in verification):\n\n",
+                            res
+                        );
                         this.userData = res.data.userData;
-                        if(direction == "portfolio"){
+                        if (direction == "portfolio") {
                             this.$router.replace(`/${this.userData.username}`);
                         } else {
-                            this.$router.replace(`/${this.userData.username}/profile`)
+                            this.$router.replace(
+                                `/${this.userData.username}/profile`
+                            );
                         }
                     },
                     (err) => {
-                        console.log(err.response);
+                        console.log("NAVBAR ERROR:\n", err.response);
+                        this.$router.replace("/login");
                     }
                 );
         },
@@ -125,6 +131,13 @@ export default {
             display: flex;
             align-items: center;
             .nav-link {
+                button {
+                    background: none;
+                    border: none;
+                }
+                button:focus {
+                    outline: none;
+                }
                 @media (min-width: 280px) {
                     i {
                         font-size: 32px;

@@ -39,11 +39,11 @@ export default {
     created() {
         this.axios.get(`http://localhost:3000/users/${this.username}`).then(
             (res) => {
-                console.log(res);
+                console.log("PROFILE SUCCESS:\n\n",res);
                 this.userData = res.data.userData;
             },
             (err) => {
-                console.log(err.response);
+                console.log("PROFILE ERROR:\n",err.response);
                 this.error = err.response.data.title;
             }
         );
