@@ -6,12 +6,7 @@
                 v-model="register_username"
                 placeholder="Your username"
             />
-            <br />
-            <input
-                type="email"
-                v-model="register_email"
-                placeholder="Your email"
-            />
+            
             <br />
             <input
                 type="password"
@@ -26,6 +21,7 @@
                 <button>I already have an account</button>
             </router-link>
         </div>
+        <!-- pridat logout button ako button component s propomi logout buttonu -->
     </div>
 </template>
 
@@ -34,7 +30,6 @@ export default {
     data() {
         return {
             register_username: "",
-            register_email: "",
             register_password: "",
             register_error: null,
         };
@@ -43,7 +38,6 @@ export default {
         registerUser() {
             let newUser = {
                 username: this.register_username,
-                email: this.register_email,
                 password: this.register_password,
             };
             console.log(newUser);
@@ -61,7 +55,6 @@ export default {
             );
             this.register_username = "";
             this.register_password = "";
-            this.register_email = "";
         },
     },
 };
