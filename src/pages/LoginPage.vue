@@ -7,24 +7,39 @@
                 placeholder="Your username"
             />
             <br />
+
             <input
                 type="password"
                 v-model="login_password"
                 placeholder="Your password"
             /><br />
-            <button @click="loginUser()">Sign me in!</button>
+
+            <Button buttonLabel="Sign me in!" @buttonPressed="loginUser()"/>
+
             <br />
-            <p>{{ login_error }}</p>
-            <br /><br />
+
+            <div class="error-message">
+                {{ login_error }}
+            </div>
             <router-link to="/register">
-                <button>I don't have an account</button>
+                <Button buttonLabel="I don't have an account" />
             </router-link>
+
+            <br />
+
+            <Button buttonLabel="Logout" @buttonPressed="logout()" />
         </div>
     </div>
 </template>
 
 <script>
+import Button from "../components/Button.vue";
+
 export default {
+    components: {
+        Button,
+    },
+
     data() {
         return {
             login_username: "",
@@ -32,6 +47,7 @@ export default {
             login_error: null,
         };
     },
+
     methods: {
         loginUser() {
             let user = {
@@ -56,6 +72,15 @@ export default {
             this.login_username = "";
             this.login_password = "";
         },
+
+        logout() {
+            if (localStorage.getItem("token") != null) {
+                localStorage.clear();
+                console.log("User logged out");
+            } else {
+                console.log("Nobody logged in");
+            }
+        },
     },
 };
 </script>
@@ -77,7 +102,7 @@ export default {
         justify-content: center;
         align-content: center;
 
-        p {
+        .error-message {
             text-align: center;
         }
 
@@ -98,18 +123,6 @@ export default {
             /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: lightgrey;
             opacity: 1; /* Firefox */
-        }
-
-        button {
-            width: 100%;
-            padding: 3%;
-
-            font-size: var(--text-medium);
-
-            border: none;
-            border-radius: 64px;
-            background-color: var(--acc-cyan);
-            color: var(--acc-deep-blue);
         }
     }
 }

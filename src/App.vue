@@ -37,8 +37,14 @@ export default {
     --acc-deep-blue: #00072f;
     --acc-purple: #8000ff;
 
+    --light-grey: #eee;
+    --dark-grey: #383838;
+    --light-cyan: #93e2e4;
+    --dark-cyan: #007d83;
+
     //gradients
-    --grad-site: linear-gradient(0, var(--acc-purple), var(--acc-deep-blue));
+    // --grad-site: linear-gradient(0, var(--acc-purple), var(--acc-deep-blue));
+    background: var(--dark-grey);
 
     //backgrounds
     --bg-dark-blue: #00072f;

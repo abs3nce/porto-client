@@ -27,6 +27,7 @@ export default {
                     res(reader.result);
                 };
             });
+
             reader.readAsDataURL(file);
             const b64file = await b64Promise;
             console.log(b64file);

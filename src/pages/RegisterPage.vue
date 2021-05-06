@@ -5,28 +5,31 @@
                 type="text"
                 v-model="register_username"
                 placeholder="Your username"
-            />
-            
-            <br />
+            /><br />
             <input
                 type="password"
                 v-model="register_password"
                 placeholder="Your password"
             /><br />
-            <button @click="registerUser()">Register me!</button>
+            <Button buttonLabel="Register me!"/>
             <br />
-            <p>{{ register_error }}</p>
+            <div class="error-message">{{ register_error }}</div>
 
             <router-link to="/login">
-                <button>I already have an account</button>
+                <Button buttonLabel="I already have an account" />
             </router-link>
+            <br />
+            <Button buttonLabel="Logout"/>
         </div>
         <!-- pridat logout button ako button component s propomi logout buttonu -->
     </div>
 </template>
 
 <script>
+import Button from "../components/Button";
+
 export default {
+    components: { Button },
     data() {
         return {
             register_username: "",
@@ -55,6 +58,15 @@ export default {
             );
             this.register_username = "";
             this.register_password = "";
+        },
+
+        Logout() {
+            if (localStorage.getItem("token") != null) {
+                localStorage.clear();
+                console.log("User logged out");
+            } else {
+                console.log("Nobody logged in");
+            }
         },
     },
 };
@@ -95,20 +107,8 @@ export default {
             opacity: 1; /* Firefox */
         }
 
-        p {
+        .error-message {
             text-align: center;
-        }
-
-        button {
-            width: 100%;
-            padding: 3%;
-
-            font-size: var(--text-medium);
-
-            border: none;
-            border-radius: 64px;
-            background-color: var(--acc-cyan);
-            color: var(--acc-deep-blue);
         }
     }
 }
