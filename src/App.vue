@@ -31,20 +31,18 @@ export default {
     //globalne variables pre farby
 
     //accents
-    --acc-cyan: #00c2ff;
-    --acc-hover: #00ffea;
-    --acc-white: white;
-    --acc-deep-blue: #00072f;
-    --acc-purple: #8000ff;
-
-    --light-grey: #eee;
-    --dark-grey: #383838;
-    --light-cyan: #93e2e4;
+    --dark-purple: #100035;
     --dark-cyan: #007d83;
+
+    --text-white: #eee;
+
+    --icon-cyan: #00c2ff;
+    --icon-dark-cyan: #003b4d;
+    --icon-hover: #00ffea;
 
     //gradients
     // --grad-site: linear-gradient(0, var(--acc-purple), var(--acc-deep-blue));
-    background: var(--dark-grey);
+    background: var(--dark-purple);
 
     //backgrounds
     --bg-dark-blue: #00072f;
@@ -89,7 +87,7 @@ body::-webkit-scrollbar-track {
     background-color: black;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--acc-cyan);
+    background-color: var(--icon-cyan);
     // border-radius: 128px;
 }
 

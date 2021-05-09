@@ -86,10 +86,10 @@
 export default {
     data() {
         return {
-            username: this.$route.params.username, // user je parameter z url ktory nasledne pouzivam na urobenie requestu
-            error: null, //error, ktory ukladam pokial sa user nenasiel alebo nastala nejaka ina chyba
-            userData: null,
             images: undefined, // toto su data ktore dostavam z requestu o fotky na jsonplaceholder (temporary)
+            username: this.$route.params.username, // user je parameter z url ktory nasledne pouzivam na urobenie requestu
+            userData: null,
+            error: null, //error, ktory ukladam pokial sa user nenasiel alebo nastala nejaka ina chyba
         };
     },
 

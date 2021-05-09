@@ -6,8 +6,8 @@
 
 <script>
 import Grid from "../components/Grid";
+
 export default {
-    props: {},
     components: {
         Grid,
     },

@@ -141,26 +141,26 @@ export default {
                 @media (min-width: 280px) {
                     i {
                         font-size: 32px;
-                        color: var(--acc-cyan);
+                        color: var(--icon-cyan);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
                         font-size: 48px;
                     }
                 }
-                @media (min-width: 768px) {
+                @media (min-width: 950px) {
                     i {
                         font-size: 250%; //povodne 48px
-                        color: var(--acc-cyan);
+                        color: var(--icon-cyan);
                         transition: var(--transition-speed) ease;
                     }
                     .main {
-                        font-size: 450%; //povodne 64px
+                        font-size: 64px; //povodne 64px // 450%??
                     }
                 }
 
                 i:hover {
-                    color: var(--acc-hover);
+                    color: var(--icon-hover);
                 }
             }
         }

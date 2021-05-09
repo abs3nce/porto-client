@@ -11,6 +11,14 @@ export default {
     components: {
         UserList,
     },
+    data() {
+        return { user: undefined };
+    },
+    methods: {
+        store(user) {
+            this.user = user;
+        },
+    },
 };
 </script>
 
@@ -20,7 +28,7 @@ export default {
     height: calc(100vh - var(--navbar-height));
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-content: center;
     color: white;
     font-size: var(--text-large);
